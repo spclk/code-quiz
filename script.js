@@ -10,7 +10,9 @@ var a4Display = document.querySelector ("#A4")
 
 
 var questionsIndex = 0
+var answersIndex = 0
 
+// this data will be used by a later function to fill in the quiz section
 
 var questions = [ 
     {
@@ -25,6 +27,15 @@ var questions = [
     }
 ]
 
+// this data will be used by a later function to fill in the results section
+
+var answers = [
+  {
+    correctMessage: "You are correct!", 
+    wrongMessage: "Wrong answer, try again",
+  }
+]
+
 function displayQuestions (){
     qDisplay.textContent = questions[questionsIndex].Q
     a1Display.textContent = questions[questionsIndex].A[0]
@@ -33,6 +44,13 @@ function displayQuestions (){
     a4Display.textContent = questions[questionsIndex].A[3]
 
 }
+function displayResults () {
+  resultsElement.textContent = answers[answersIndex].correctMessage
+  resultsElement.textContent = answers[answersIndex].wrongMessage
+
+}
+
+// function to begin the timer when the start button is clicked
 
 function startTimer() {
     timerCount=60
@@ -59,6 +77,22 @@ function startTimer() {
     if(event.target.matches("button")){
         console.log(event.target)
         console.log (event.target.textContent)
-    }
+      }
     
+    if(event.target.matches(a3Display.textContent = questions[questionsIndex].C)){
+      displayResults([0]);
+      }
+    
+    else { 
+      displayResults([1]);
+      }
+      
+
   })  
+
+ 
+
+
+ 
+
+
